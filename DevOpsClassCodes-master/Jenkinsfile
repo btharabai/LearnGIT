@@ -14,25 +14,25 @@ pipeline {
         stage('Compile'){
             steps{
                 echo 'Compilation of the source code'
-                bat 'mvn compile'
+                bat 'mvn -f DevOpsClassCodes-master/pom.xml compile'
             }
         }
         stage('Test'){
             steps{
                  echo 'Testing of the source code'
-                 bat 'mvn test'
+                 bat 'mvn -f DevOpsClassCodes-master/pom.xml test'
             }
         }
         stage('QA'){
             steps{
                  echo 'QA of the source code'
-                 bat 'mvn pmd:pmd'
+                 bat 'mvn -f DevOpsClassCodes-master/pom.xml pmd:pmd'
             }
         }
         stage('Package'){
             steps{
                  echo 'Package the source code'
-                 bat 'mvn package'
+                 bat 'mvn -f DevOpsClassCodes-master/pom.xml package'
                 
             }
         }
